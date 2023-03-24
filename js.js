@@ -45,9 +45,9 @@ async function new_fusion(){
 			    const lines = html.split('\n');
 		 	    // Update current fusion name for future post request
 			    document.getElementById("fusion_name").innerHTML = lines[0];
-    			    document.getElementById("image_fusion").src=("../cgi-enabled/Smash_or_Pass_Pokemon_fusion/indexed/"+lines[1]+"/"+lines[0]+"");
-    			    document.getElementById("parent1").src=("../cgi-enabled/Smash_or_Pass_Pokemon_fusion/pokemon/"+lines[1]+".png");
-    			    document.getElementById("parent2").src=("../cgi-enabled/Smash_or_Pass_Pokemon_fusion/pokemon/"+lines[2]+".png");
+    			    document.getElementById("image_fusion").src=("CustomBattlers/"+lines[1]+"/"+lines[0]+"");
+    			    document.getElementById("parent1").src=("VanillaBattlers/"+lines[1]+".png");
+    			    document.getElementById("parent2").src=("VanillaBattlers/"+lines[2]+".png");
 
 		})
     // Wait a 700 ms before reactivate buttons in order to avoid spam
