@@ -1,7 +1,6 @@
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
 function fetch_to_api(endpoint){
 	// Stop buttons to work during the fetchs request.
 	document.getElementById("button_heart").onclick=null; 
