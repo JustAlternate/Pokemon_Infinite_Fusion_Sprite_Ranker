@@ -53,6 +53,7 @@ async function new_fusion(){
 } 
 
 async function fetch_leaderboard(){
+
     const leaderboard_div = document.getElementById("leaderboard");
     while (leaderboard_div.hasChildNodes()){
     	leaderboard_div.removeChild(leaderboard_div.firstChild);
