@@ -1,6 +1,13 @@
 .title{
     text-align:center;
 }
+.report_bug{
+	position:absolute;
+	top: 10px;
+	left:calc(100% - 25vw);
+	font-size:1vw;
+	
+}
 .subtitle{
     text-align:center;
 }
@@ -11,9 +18,8 @@
 }
 
 div {
-    width:100%;
-    height:100%;
 }
+
 .fusion_img{
     width:25vw;
     margin-left:auto;
@@ -37,7 +43,7 @@ parents {
 
 buttons{
     display:block;
-    width:40%;
+    width:30%;
     text-align:center;
     margin:auto;
 }
@@ -48,11 +54,24 @@ buttons{
     padding-right:5%;
     
 }
+.button_leaderboard{
+	margin-top:10vh;
+	width:20%;
+	height:10%;
+	text-align:center;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:180%;
+}
 
 @media screen and (max-width: 1200px) {
     .title{
 	margin-top:5vh;
 	font-size:4vw;
+    }
+    .report_bug{
+	    font-size:2vw;
     }
     .subtitle{
 	font-size:3vw;
