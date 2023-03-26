@@ -51,7 +51,6 @@ function fetch_to_api(endpoint){
 		})
 	}
 	// Finish by fetching a new fusion and updating stats
-	fetch_stats();
 	new_fusion();
 }
 async function new_fusion(){
@@ -70,10 +69,11 @@ async function new_fusion(){
     			    document.getElementById("parent2").src=("VanillaBattlers/"+lines[2]+".png");
 		})
     // Wait a 700 ms before reactivate buttons in order to avoid spam
-    await new Promise(resolve => setTimeout(resolve, 700));
+    await new Promise(resolve => setTimeout(resolve, 1000));
     document.getElementById("button_heart").onclick=function(){fetch_to_api('smash');}; 
     document.getElementById("button_refresh").onclick=function(){fetch_to_api('refresh');}; 
-    document.getElementById("button_pass").onclick=function(){fetch_to_api('pass');}; 
+    document.getElementById("button_pass").onclick=function(){fetch_to_api('pass');};
+    fetch_stats();
 } 
 
 async function fetch_leaderboard(){
