@@ -1,7 +1,30 @@
+
+
+fetch('https://justalternate.fr:8080/nbr_of_total_fusion')
+	.then((response) => {
+		return response.text();
+	})
+	.then((html) => {
+		    document.getElementById("total_fusion").innerHTML = html;
+	})
+
+
 function sleep(ms) {
 
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+function fetch_stats(){
+    fetch('https://justalternate.fr:8080/nbr_of_votes')
+		.then((response) => {
+			return response.text();
+		})
+		.then((html) => {
+			    document.getElementById("total_votes").innerHTML = html;
+		})
+}
+
+
 function fetch_to_api(endpoint){
 	// Stop buttons to work during the fetchs request.
 	document.getElementById("button_heart").onclick=null; 
@@ -27,7 +50,8 @@ function fetch_to_api(endpoint){
 		  console.log(data);
 		})
 	}
-	// Finish by fetching a new fusion
+	// Finish by fetching a new fusion and updating stats
+	fetch_stats();
 	new_fusion();
 }
 async function new_fusion(){
