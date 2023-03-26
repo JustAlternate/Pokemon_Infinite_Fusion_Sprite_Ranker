@@ -68,8 +68,8 @@ async function new_fusion(){
     			    document.getElementById("parent1").src=("VanillaBattlers/"+lines[1]+".png");
     			    document.getElementById("parent2").src=("VanillaBattlers/"+lines[2]+".png");
 		})
-    // Wait a 700 ms before reactivate buttons in order to avoid spam
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Wait a 500 ms before reactivate buttons in order to avoid spam
+    await new Promise(resolve => setTimeout(resolve, 500));
     document.getElementById("button_heart").onclick=function(){fetch_to_api('smash');}; 
     document.getElementById("button_refresh").onclick=function(){fetch_to_api('refresh');}; 
     document.getElementById("button_pass").onclick=function(){fetch_to_api('pass');};
