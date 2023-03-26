@@ -48,8 +48,8 @@ async function new_fusion(){
     // Wait a 700 ms before reactivate buttons in order to avoid spam
     await new Promise(resolve => setTimeout(resolve, 700));
     document.getElementById("button_heart").onclick=function(){fetch_to_api('smash');}; 
-    document.getElementById("button_refresh").onclick=function(){fetch_to_api('pass');}; 
-    document.getElementById("button_pass").onclick=function(){fetch_to_api('refresh');}; 
+    document.getElementById("button_refresh").onclick=function(){fetch_to_api('refresh');}; 
+    document.getElementById("button_pass").onclick=function(){fetch_to_api('pass');}; 
 } 
 
 async function fetch_leaderboard(){
