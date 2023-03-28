@@ -1,1 +1,1 @@
-# Pokemon_Infinite_fusion_Smash_or_Pass
+# Pokemon_Infinite_fusion_Sprite_Ranker
