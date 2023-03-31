@@ -1,13 +1,14 @@
-
-
 fetch('https://justalternate.fr:8080/nbr_of_total_fusion')
 	.then((response) => {
 		return response.text();
 	})
 	.then((html) => {
-		    document.getElementById("total_fusion").innerHTML = html;
+		    document.getElementById("total_fusion_label").innerHTML += html;
 	})
 
+if (localStorage.getItem('favorites') == null){
+	localStorage.setItem('favorites',JSON.stringify([]));
+}
 
 function sleep(ms) {
 
@@ -20,7 +21,7 @@ function fetch_stats(){
 			return response.text();
 		})
 		.then((html) => {
-			    document.getElementById("total_votes").innerHTML = html;
+			    document.getElementById("total_votes_label").innerHTML = "Total Votes from the Community : "+html;
 		})
 }
 
@@ -34,6 +35,12 @@ function fetch_to_api(endpoint){
 	// Get what fusion was shown before
 	const fusion = document.getElementById("fusion_name").innerHTML;
 
+	if (endpoint == "smash"){
+    		var favorites = JSON.parse(localStorage.getItem('favorites'));
+		favorites.push(fusion);
+		console.log(favorites);
+		localStorage.setItem('favorites',JSON.stringify(favorites));
+	}
 	// Check if we want to make a post request
 	if (endpoint == "smash" || endpoint == "pass"){
 		fetch('https://justalternate.fr:8080/'+endpoint,{
@@ -77,7 +84,6 @@ async function new_fusion(){
 } 
 
 async function fetch_leaderboard(){
-
     const leaderboard_div = document.getElementById("leaderboard");
     while (leaderboard_div.hasChildNodes()){
     	leaderboard_div.removeChild(leaderboard_div.firstChild);
@@ -90,7 +96,7 @@ async function fetch_leaderboard(){
 		.then((html) => {
 			console.log(html);
 			const lines = html.split('\n');
-			for (var i=0; i< lines.length -1; i++){
+			for (var i=0; i< lines.length-1; i++){
 				let elem = lines[i];
 				let elem_split_point = elem.split('.');
 				let parent1 = elem_split_point[0];
@@ -103,4 +109,19 @@ async function fetch_leaderboard(){
 		})
     await new Promise(resolve => setTimeout(resolve, 5000));
     document.getElementById("button_leaderboard").onclick=function(){fetch_leaderboard();}; 
+}
+
+function show_favorite(){
+    var favorites = JSON.parse(localStorage.getItem('favorites'));
+    const leaderboard_div = document.getElementById("leaderboard");
+    while (leaderboard_div.hasChildNodes()){
+    	leaderboard_div.removeChild(leaderboard_div.firstChild);
+    }
+    for (var i = 0; i < favorites.length; i++){
+	let parent1 = favorites[i].split('.')[0];
+	let elem_of_leaderboard = document.createElement("img");
+	elem_of_leaderboard.src = ("CustomBattlers/"+parent1+"/"+favorites[i]+"");
+	leaderboard_div.appendChild(elem_of_leaderboard);
+    }
+
 }
