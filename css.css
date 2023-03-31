@@ -60,12 +60,12 @@ buttons{
 	display:inline-block;
 	margin-left:auto;
 	margin-right:auto;
-	width:49.5%;
+	width:48%;
 }
 .button_favorite{
 	text-align:center;
 	display:inline-block;
-	width:49.5%;
+	width:48%;
 	margin-left:auto;
 	margin-right:auto;
 }
