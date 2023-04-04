@@ -71,7 +71,7 @@ async function new_fusion(){
 			    const lines = html.split('\n');
 		 	    // Update current fusion name for future post request
 			    document.getElementById("fusion_name").innerHTML = lines[0];
-    			    document.getElementById("image_fusion").src=("CustomBattlers/"+lines[1]+"/"+lines[0]+"");
+    			    document.getElementById("image_fusion").src=("CustomBattlers2/"+lines[0]+"");
     			    document.getElementById("parent1").src=("VanillaBattlers/"+lines[1]+".png");
     			    document.getElementById("parent2").src=("VanillaBattlers/"+lines[2]+".png");
 		})
@@ -101,7 +101,7 @@ async function fetch_leaderboard(){
 				let elem_split_point = elem.split('.');
 				let parent1 = elem_split_point[0];
 				let elem_of_leaderboard = document.createElement("img")
-				elem_of_leaderboard.src = ("CustomBattlers/"+parent1+"/"+elem+"");
+				elem_of_leaderboard.src = ("CustomBattlers2/"+elem+"");
 				leaderboard_div.appendChild(elem_of_leaderboard);
 
 
@@ -120,7 +120,7 @@ function show_favorite(){
     for (var i = 0; i < favorites.length; i++){
 	let parent1 = favorites[i].split('.')[0];
 	let elem_of_leaderboard = document.createElement("img");
-	elem_of_leaderboard.src = ("CustomBattlers/"+parent1+"/"+favorites[i]+"");
+	elem_of_leaderboard.src = ("CustomBattlers2/"+favorites[i]+"");
 	leaderboard_div.appendChild(elem_of_leaderboard);
     }
 
