@@ -1,0 +1,39 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Pokemon Infinite Fusion Sprite Ranker</title>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="js.js"></script>
+
+</head>
+
+<body onload="fetch_to_api('refresh')">
+      <p id='fusion_name' style="display:none;"> </p>
+      <div>
+      <p class="title"> Pokemon Infinite Fusion Sprite Ranker </p>
+      <p class="subtitle"> Help us find the best fusions ! </p>
+      <a class="under_title" href="https://www.pokecommunity.com/showthread.php?t=347883"> Play the official game ! </a>
+      <p id="total_fusion_label" class="total_fusion_label"> Number of Custom Sprites : </p>
+      <p id="total_votes_label" class="total_votes_label"> Total Votes from the Community : </p>
+      <parents>
+      <img id = "parent1" class="parents_imgs">
+      <img id = "parent2" class="parents_imgs">
+      </parents>
+      <img id = "image_fusion" class="fusion_img" src="">
+      <buttons>
+	      <img id="button_heart" class="buttons" onclick="fetch_to_api('smash')" src="assets/pokeball.png">
+	      <img id="button_refresh" class="buttons" onclick="fetch_to_api('refresh')" src="assets/refresh-cw.svg">
+	      <img id="button_pass" class="buttons" onclick="fetch_to_api('pass')" src="assets/x.svg">
+      </buttons>
+      </div>
+
+      <button class="button_leaderboard" id="button_leaderboard" onclick="fetch_leaderboard()"> Community Leaderboard </button>
+      <button class="button_favorite" id="button_favorite" onclick="show_favorite()"> Your Favorites </button>
+      <a class="report_bug" href = "https://discordapp.com/users/244507431814692874"> Report a bug => JustAlternate#8683 </a>
+      <div id="leaderboard" class="leaderboard">
+      </div>
+</body>
+
+
+</html>
