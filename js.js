@@ -121,7 +121,7 @@ async function fetch_leaderboard(){
 
 
 async function fetch_last_voted(){
-    const leaderboard_div = document.getElementById("last_voted");
+    const leaderboard_div = document.getElementById("leaderboard");
     while (leaderboard_div.hasChildNodes()){
     	leaderboard_div.removeChild(leaderboard_div.firstChild);
     }
