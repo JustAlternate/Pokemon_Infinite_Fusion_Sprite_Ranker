@@ -16,7 +16,10 @@
       <p class="subtitle"> Help us find the best fusions ! </p>
       <a class="under_title" href="https://www.pokecommunity.com/showthread.php?t=347883"> Play the official game ! </a>
       <p id="total_fusion_label" class="total_fusion_label"> Number of Custom Sprites : </p>
+
       <p id="total_votes_label" class="total_votes_label"> Total Votes from the Community : </p>
+      <p id="total_fusion_0_votes" class="total_fusion_0_votes"> Remaining sprites with 0 total votes : </p>
+
       <parents>
       <img id = "parent1" class="parents_imgs">
       <img id = "parent2" class="parents_imgs">
@@ -31,8 +34,10 @@
 
       <button class="button_leaderboard" id="button_leaderboard" onclick="fetch_leaderboard()"> Community Leaderboard </button>
       <button class="button_favorite" id="button_favorite" onclick="show_favorite()"> Your Favorites </button>
+      <button class="button_last_voted" id="button_last_voted" onclick="fetch_last_voted()"> Community Last Voted </button>
       <a class="report_bug" href = "https://discordapp.com/users/244507431814692874"> Report a bug => JustAlternate#8683 </a>
       <div id="leaderboard" class="leaderboard">
+      <div id="last_voted" class="last_voted">
       </div>
 </body>
 

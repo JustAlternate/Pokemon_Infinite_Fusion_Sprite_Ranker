@@ -23,6 +23,14 @@ function fetch_stats(){
 		.then((html) => {
 			    document.getElementById("total_votes_label").innerHTML = "Total Votes from the Community : "+html;
 		})
+
+    fetch('https://justalternate.fr:8080/nbr_of_fusion_0_votes')
+		.then((response) => {
+			return response.text();
+		})
+		.then((html) => {
+			    document.getElementById("total_fusion_0_votes").innerHTML = "Remaining sprites with 0 total votes : "+html;
+		})
 }
 
 
@@ -111,6 +119,33 @@ async function fetch_leaderboard(){
     document.getElementById("button_leaderboard").onclick=function(){fetch_leaderboard();}; 
 }
 
+
+async function fetch_last_voted(){
+    const last_voted_div = document.getElementById("last_voted");
+    while (last_voted_div.hasChildNodes()){
+    	last_voted_div.removeChild(last_voted_div.firstChild);
+    }
+    document.getElementById("button_last_voted").onclick=null; 
+    fetch('https://justalternate.fr:8080/last_voted_fusion')
+		.then((response) => {
+			return response.text();
+		})
+		.then((html) => {
+			console.log(html);
+			const lines = html.split('\n');
+			for (var i=0; i< lines.length-1; i++){
+				let elem = lines[i];
+				let elem_split_point = elem.split('.');
+				let parent1 = elem_split_point[0];
+				let elem_of_leaderboard = document.createElement("img")
+				elem_of_leaderboard.src = ("CustomBattlers2/"+elem+"");
+				last_voted_div.appendChild(elem_of_leaderboard);
+			}
+		})
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    document.getElementById("button_last_voted").onclick=function(){fetch_last_voted();}; 
+}
+
 function show_favorite(){
     var favorites = JSON.parse(localStorage.getItem('favorites'));
     const leaderboard_div = document.getElementById("leaderboard");
@@ -123,5 +158,4 @@ function show_favorite(){
 	elem_of_leaderboard.src = ("CustomBattlers2/"+favorites[i]+"");
 	leaderboard_div.appendChild(elem_of_leaderboard);
     }
-
 }
