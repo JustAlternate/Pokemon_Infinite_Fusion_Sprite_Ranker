@@ -121,9 +121,9 @@ async function fetch_leaderboard(){
 
 
 async function fetch_last_voted(){
-    const last_voted_div = document.getElementById("last_voted");
-    while (last_voted_div.hasChildNodes()){
-    	last_voted_div.removeChild(last_voted_div.firstChild);
+    const leaderboard_div = document.getElementById("last_voted");
+    while (leaderboard_div.hasChildNodes()){
+    	leaderboard_div.removeChild(leaderboard_div.firstChild);
     }
     document.getElementById("button_last_voted").onclick=null; 
     fetch('https://justalternate.fr:8080/last_voted_fusion')
@@ -139,7 +139,7 @@ async function fetch_last_voted(){
 				let parent1 = elem_split_point[0];
 				let elem_of_leaderboard = document.createElement("img")
 				elem_of_leaderboard.src = ("CustomBattlers2/"+elem+"");
-				last_voted_div.appendChild(elem_of_leaderboard);
+				leaderboard_div.appendChild(elem_of_leaderboard);
 			}
 		})
     await new Promise(resolve => setTimeout(resolve, 5000));
