@@ -29,7 +29,7 @@ function fetch_stats(){
 			return response.text();
 		})
 		.then((html) => {
-			    document.getElementById("total_fusion_0_votes").innerHTML = "Remaining sprites with 0 total votes : "+html;
+			    document.getElementById("total_fusion_0_votes").innerHTML = "Remaining sprites with less than 2 total votes : "+html;
 		})
 }
 
